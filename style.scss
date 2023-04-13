@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body,
+main {
+    height: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+$main-color: #FF6666;
+$white: #fff;
+
+/* Main Code Start */
+.todol-hd {
+    background-color: $main-color;
+    height: 100%;
+    overflow: hidden;
+}
+
+.todol-con {
+    max-width: 450px;
+    margin: 82px auto;
+    background: #fff;
+    border-radius: 5px;
+    padding: 25px 30px;
+}
+
+input {
+    width: 100%;
+}
+
+.todolist-input {
+    h1 {
+        font-size: 40px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    form {
+        display: flex;
+        gap: 4px;
+
+        input {
+            height: 30px;
+            padding: 0;
+            border-radius: 2px;
+            border: 2px solid $main-color;
+        }
+
+        input#new-input-task {
+            padding: 3px 8px;
+
+            &:focus {
+                box-shadow: inset 2px 2px 2px rgba(0, 0, 0, .3);
+                border-color: $main-color  !important;
+                outline: none;
+            }
+        }
+
+        input#new-task-submit {
+            max-width: 43px;
+            height: 40px;
+            background-color: $main-color;
+            color: $white;
+            border: none;
+            border-radius: 2px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+}
+
+.todolist-task {
+    margin-top: 30px;
+
+    .task {
+        width: 100%;
+
+        .content {
+            position: relative;
+            width: 100%;
+            display: flex;
+
+            &.mark-completed{
+                opacity: .5;
+                input{
+                    text-decoration: line-through;
+                }
+            }
+
+            >input {
+                height: 32px;
+                border: none;
+                background: #ffe6e6;
+                border: 2px;
+                padding: 3px 12px;
+                padding-left: 40px;
+                font-size: 17px;
+            }
+
+            .actions {
+                display: flex;
+
+                button {
+                    border: none;
+                    padding: 1px;
+                    cursor: pointer;
+                    position: absolute;
+                    background-color: transparent;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    opacity: .7;
+
+                    &.edit {
+                        right: 34px;
+                        svg{
+                            g{
+                                fill: #000;
+                            }
+                        }
+                    }
+
+                    &.delete {
+                        right: 5px;
+                    }
+
+                    &.complete{
+                        position: absolute;
+                        left: 5px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+
+                    svg {
+                        max-width: 24px;
+                        height: auto;
+
+                        g {
+                            fill: $main-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
